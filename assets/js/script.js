@@ -1,5 +1,5 @@
 function getComputerChoice() {
-    randomNumber = Math.floor(Math.random() * 3); // Returns a random integer from 0 to 2.
+    let randomNumber = Math.floor(Math.random() * 3); // Returns a random integer from 0 to 2.
     switch (randomNumber) {
         case 0:
             return "Rock";
@@ -11,45 +11,56 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection_f = playerSelection.toLowerCase()
-    if (playerSelection_f === "rock") {
+    if (playerSelection === "rock") {
         if (computerSelection === "Rock") {
             return "It's a draw!";
-        }
-        else if (computerSelection === "Paper") {
+        } else if (computerSelection === "Paper") {
             return "You lose! Paper beats Rock";
-        }
-        else {
+        } else {
             return "You win! Rock beats Scissors"
         }
     }
-    else if (playerSelection_f === "paper") {
+    else if (playerSelection === "paper") {
         if (computerSelection === "Rock") {
             return "You win! Paper beats Rock"
-        }
-        else if (computerSelection == "Paper") {
+        } else if (computerSelection == "Paper") {
             return "It's a draw!"
-        }
-        else {
+        } else {
             return "You lose! Scissors beat Paper"
         }
     }
-    else if (playerSelection_f === "scissors") {
+    else {
         if (computerSelection == "Rock") {
             return "You lose! Rock beats Scissors"
-        }
-        else if (computerSelection == "Paper") {
+        } else if (computerSelection == "Paper") {
             return "You win! Scissors beat Paper"
-        }
-        else {
+        } else {
             return "It's a draw!"
         }
     }
-    else{
-        return "Please use only Rock, Paper, or Scissors."
+}
+
+function game() {
+    let playerScore = 0;
+    let computerScore = 0;
+    for (let i = 0; i < 5; i++) {
+        let playerSelection = prompt("Pick Rock, Paper, or Scissors:");
+        let computerSelection = getComputerChoice()
+        let result = playRound(playerSelection, computerSelection)
+        console.log(result);
+        if (result.slice(0, 8) === "You win!") {
+            playerScore++;
+        } else if (result.slice(0, 9) === "You lose!") {
+            computerScore++;
+        }
+    }
+
+    if (playerScore > computerScore) {
+        console.log("You win the game!");
+    } else if (playerScore < computerScore) {
+        console.log("You lose the game!");
+    } else {
+        console.log("The game is a draw!");
     }
 }
 
-const playerSelection = "papeR";
-const computerSelection = getComputerChoice();
-console.log(playRound(playerSelection, computerSelection));
