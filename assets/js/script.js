@@ -11,6 +11,10 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
+    if (typeof(playerSelection) === "string") {
+        playerSelection = playerSelection.toLowerCase();
+    }
+
     if (playerSelection === "rock") {
         if (computerSelection === "Rock") {
             return "It's a draw!";
@@ -23,20 +27,23 @@ function playRound(playerSelection, computerSelection) {
     else if (playerSelection === "paper") {
         if (computerSelection === "Rock") {
             return "You win! Paper beats Rock"
-        } else if (computerSelection == "Paper") {
+        } else if (computerSelection === "Paper") {
             return "It's a draw!"
         } else {
             return "You lose! Scissors beat Paper"
         }
     }
-    else {
-        if (computerSelection == "Rock") {
+    else if (playerSelection === "scissors") {
+        if (computerSelection === "Rock") {
             return "You lose! Rock beats Scissors"
-        } else if (computerSelection == "Paper") {
+        } else if (computerSelection === "Paper") {
             return "You win! Scissors beat Paper"
         } else {
             return "It's a draw!"
         }
+    } else {
+        playerSelection = prompt("Please pick only Rock, Paper, or Scissors:");
+        return playRound(playerSelection, computerSelection);
     }
 }
 
