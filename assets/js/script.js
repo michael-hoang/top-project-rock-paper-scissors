@@ -71,5 +71,7 @@ buttons.forEach((button) => {
         let playerSelection = event.target.innerText;
         let computerSelection = getComputerChoice();
         let result = playRound(playerSelection, computerSelection);
+        let resultDiv = document.querySelector('#result');
+        resultDiv.innerHTML = `Result: ${result}`;
     });
 });
