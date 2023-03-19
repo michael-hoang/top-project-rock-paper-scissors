@@ -71,6 +71,21 @@ function game() {
     }
 }
 
+function checkForWinner() {
+    if (playerScore === 5) {
+        console.log('You win the game!');
+        resetGame();
+    } else if (cpuScore === 5) {
+        console.log('The computer wins the game!');
+        resetGame();
+    }
+}
+
+function resetGame() {
+    playerScore = 0;
+    cpuScore = 0;
+}
+
 let playerScore = 0;
 let cpuScore = 0;
 const playerScoreDiv = document.querySelector('#player-score');
@@ -85,5 +100,6 @@ buttons.forEach((button) => {
         resultDiv.innerHTML = `Result: ${result}`;
         playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
         cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
+        checkForWinner();
     });
 });
