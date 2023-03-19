@@ -47,30 +47,6 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for (let i = 0; i < 1; i++) { // play one round
-        let playerSelection = prompt("Pick Rock, Paper, or Scissors:");
-        let computerSelection = getComputerChoice()
-        let result = playRound(playerSelection, computerSelection)
-        console.log(result);
-        if (result.slice(0, 8) === "You win!") {
-            playerScore++;
-        } else if (result.slice(0, 9) === "You lose!") {
-            computerScore++;
-        }
-    }
-
-    if (playerScore > computerScore) {
-        console.log("You win the game!");
-    } else if (playerScore < computerScore) {
-        console.log("You lose the game!");
-    } else {
-        console.log("The game is a draw!");
-    }
-}
-
 function checkForWinner() {
     if (playerScore === 5) {
         console.log('You win the game!');
