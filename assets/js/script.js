@@ -11,10 +11,7 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    if (typeof(playerSelection) === "string") {
-        playerSelection = playerSelection.toLowerCase();
-    }
-
+    playerSelection = playerSelection.toLowerCase();
     if (playerSelection === "rock") {
         if (computerSelection === "Rock") {
             return "It's a draw!";
@@ -33,7 +30,7 @@ function playRound(playerSelection, computerSelection) {
             return "You lose! Scissors beat Paper"
         }
     }
-    else if (playerSelection === "scissors") {
+    else {
         if (computerSelection === "Rock") {
             return "You lose! Rock beats Scissors"
         } else if (computerSelection === "Paper") {
@@ -41,9 +38,6 @@ function playRound(playerSelection, computerSelection) {
         } else {
             return "It's a draw!"
         }
-    } else {
-        playerSelection = prompt("Please pick only Rock, Paper, or Scissors:");
-        return playRound(playerSelection, computerSelection);
     }
 }
 
@@ -72,9 +66,10 @@ function game() {
 }
 
 const buttons = document.querySelectorAll('.player-choice-btn');
-console.log(buttons);
 buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
-        console.log(event.target.innerText);
+        let playerSelection = event.target.innerText;
+        let computerSelection = getComputerChoice();
+        let result = playRound(playerSelection, computerSelection);
     });
 });
