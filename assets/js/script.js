@@ -65,6 +65,12 @@ function game() {
     }
 }
 
+let playerScore = 0;
+let cpuScore = 0;
+const playerScoreDiv = document.querySelector('#player-score');
+const cpuScoreDiv = document.querySelector('#cpu-score');
+playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
+cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
 const buttons = document.querySelectorAll('.player-choice-btn');
 buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
