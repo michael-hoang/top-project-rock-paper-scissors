@@ -71,3 +71,10 @@ function game() {
     }
 }
 
+const buttons = document.querySelectorAll('.player-choice-btn');
+console.log(buttons);
+buttons.forEach((button) => {
+    button.addEventListener('click', (event) => {
+        console.log(event.target.innerText);
+    });
+});
