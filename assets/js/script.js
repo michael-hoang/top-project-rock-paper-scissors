@@ -50,7 +50,7 @@ function playRound(playerSelection, computerSelection) {
 function game() {
     let playerScore = 0;
     let computerScore = 0;
-    for (let i = 0; i < 5; i++) {
+    for (let i = 0; i < 1; i++) { // play one round
         let playerSelection = prompt("Pick Rock, Paper, or Scissors:");
         let computerSelection = getComputerChoice()
         let result = playRound(playerSelection, computerSelection)
