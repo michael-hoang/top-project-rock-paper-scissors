@@ -16,24 +16,30 @@ function playRound(playerSelection, computerSelection) {
         if (computerSelection === "Rock") {
             return "It's a draw!";
         } else if (computerSelection === "Paper") {
+            cpuScore++;
             return "You lose! Paper beats Rock";
         } else {
+            playerScore++;
             return "You win! Rock beats Scissors"
         }
     }
     else if (playerSelection === "paper") {
         if (computerSelection === "Rock") {
+            playerScore++;
             return "You win! Paper beats Rock"
         } else if (computerSelection === "Paper") {
             return "It's a draw!"
         } else {
+            cpuScore++;
             return "You lose! Scissors beat Paper"
         }
     }
     else {
         if (computerSelection === "Rock") {
+            playerScore++;
             return "You lose! Rock beats Scissors"
         } else if (computerSelection === "Paper") {
+            cpuScore++;
             return "You win! Scissors beat Paper"
         } else {
             return "It's a draw!"
@@ -69,8 +75,6 @@ let playerScore = 0;
 let cpuScore = 0;
 const playerScoreDiv = document.querySelector('#player-score');
 const cpuScoreDiv = document.querySelector('#cpu-score');
-playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
-cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
 const buttons = document.querySelectorAll('.player-choice-btn');
 buttons.forEach((button) => {
     button.addEventListener('click', (event) => {
@@ -79,5 +83,7 @@ buttons.forEach((button) => {
         let result = playRound(playerSelection, computerSelection);
         let resultDiv = document.querySelector('#result');
         resultDiv.innerHTML = `Result: ${result}`;
+        playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
+        cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
     });
 });
