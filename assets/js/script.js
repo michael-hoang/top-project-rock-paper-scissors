@@ -87,7 +87,6 @@ const playBtn = document.querySelector('#play-btn');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
 
 playBtn.addEventListener('click', resetGame);
-
 playerChoiceBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
         let playerSelection = event.target.innerText;
