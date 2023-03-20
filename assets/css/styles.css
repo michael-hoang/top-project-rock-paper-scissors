@@ -3,12 +3,25 @@ body {
     color: #EEEEEE;
     display: flex;
     flex-direction: column;
-    font-size: 20px;
-    margin: 0 50vh;
+    font-family: 'Yomogi', cursive;
+    font-size: 26px;
+    margin: 0 20%;
+    text-align: center;
 }
 
 button {
     background-color: #FFD369;
+    font-family: 'Yomogi', cursive;
+    font-size: larger;
+    font-weight: 900;
+    height: 80px;
+    transition: all 0.15s ease-in-out;
+    width: 200px;
+}
+
+button:hover {
+    color: white;
+    box-shadow: 0 5px 15px rgba(145, 92, 182, 1);
 }
 
 button:disabled {
@@ -18,15 +31,29 @@ button:disabled {
 
 #buttons-container {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
 }
 
 h1 {
     color: #FFD369;
     font-family: 'Rubik Dirt', cursive;
+    font-size: 80px;
+}
+
+#play-btn {
+    font-size: larger;
+    height: 60px;
+    min-width: 120px;
+    width: auto;
+}
+
+#play-btn-container {
+    display: flex;
+    justify-content: center;
 }
 
 #scores-container {
     display: flex;
     justify-content: space-around;
+    margin: 25px 0;
 }
