@@ -1,6 +1,14 @@
 body {
     background-color: #222831;
     color: #EEEEEE;
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    margin: 0 50vh;
+}
+
+button {
+    background-color: #FFD369;
 }
 
 button:disabled {
@@ -8,11 +16,17 @@ button:disabled {
     color: #EEEEEE;
 }
 
-button {
-    background-color: #FFD369;
+#buttons-container {
+    display: flex;
+    justify-content: space-around;
 }
 
 h1 {
     color: #FFD369;
     font-family: 'Rubik Dirt', cursive;
+}
+
+#scores-container {
+    display: flex;
+    justify-content: space-around;
 }
