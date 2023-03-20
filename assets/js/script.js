@@ -48,18 +48,33 @@ function playRound(playerSelection, computerSelection) {
 }
 
 function checkForWinner() {
+    let winnerFound = false;
     if (playerScore === 5) {
         winnerDiv.innerHTML = 'You win the game!';
-        resetGame();
+        winnerFound = true;
     } else if (cpuScore === 5) {
         winnerDiv.innerHTML = 'The computer wins the game!';
-        resetGame();
+        winnerFound = true;
+    }
+    if (winnerFound) {
+        playBtn.innerText = 'Play again';
+        playerChoiceBtn.forEach((button) => {
+            button.disabled = true;
+        });
     }
 }
 
 function resetGame() {
     playerScore = 0;
     cpuScore = 0;
+    playBtn.innerText = 'Reset';
+    playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
+    cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
+    resultDiv.innerHTML = 'Result:';
+    winnerDiv.innerHTML = '';
+    playerChoiceBtn.forEach((button) => {
+        button.disabled = false;
+    })
 }
 
 let playerScore = 0;
@@ -71,14 +86,7 @@ const winnerDiv = document.querySelector('#winner');
 const playBtn = document.querySelector('#play-btn');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
 
-playBtn.addEventListener('click', (event) => {
-    playerChoiceBtn.forEach((button) => {
-        button.disabled = false;
-    });
-    playBtn.innerText = 'Reset';
-    playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
-    cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
-});
+playBtn.addEventListener('click', resetGame);
 
 playerChoiceBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
