@@ -54,6 +54,7 @@ function checkForWinner() {
         winnerFound = true;
     } else if (cpuScore === 5) {
         winnerDiv.innerHTML = 'The computer wins the game!';
+        headGfx.src = 'assets/img/lose.png';
         winnerFound = true;
     }
     if (winnerFound) {
@@ -69,6 +70,7 @@ function resetGame() {
     cpuScore = 0;
     playerGfx.src = '';
     cpuGfx.src = '';
+    headGfx.src = 'assets/img/kitty.png';
     playBtn.innerText = 'Reset';
     playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
     cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
@@ -98,6 +100,7 @@ const playBtn = document.querySelector('#play-btn');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
 const playerGfx = document.querySelector('#player-choice-gfx');
 const cpuGfx = document.querySelector('#cpu-choice-gfx');
+const headGfx = document.querySelector('#gfx-head');
 
 playBtn.addEventListener('click', resetGame);
 playerChoiceBtn.forEach((button) => {

@@ -48,7 +48,7 @@ html {
     width: 100%;
 }
 
-img {
+img.choice {
     height: 20vh;
 }
 
@@ -58,10 +58,21 @@ img {
     width: 200px;
 }
 
+#gfx-head {
+    height: 250px;
+}
+
 #gfx-play-container {
     align-items: center;
     display: flex;
-    justify-content:space-between;
+    justify-content: center;
+}
+
+#mid-gfx-container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #scores-container {
