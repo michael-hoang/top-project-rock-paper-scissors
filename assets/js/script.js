@@ -67,6 +67,8 @@ function checkForWinner() {
 function resetGame() {
     playerScore = 0;
     cpuScore = 0;
+    playerGfx.src = '';
+    cpuGfx.src = '';
     playBtn.innerText = 'Reset';
     playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
     cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
@@ -74,7 +76,16 @@ function resetGame() {
     winnerDiv.innerHTML = '&nbsp';
     playerChoiceBtn.forEach((button) => {
         button.disabled = false;
-    })
+    });
+}
+
+function updateImages(playerSelection, computerSelection) {
+    playerSelection = playerSelection.toLowerCase();
+    computerSelection = computerSelection.toLowerCase();
+    playerImagePath = `assets/img/${playerSelection}.png`;
+    computerImagePath = `assets/img/${computerSelection}.png`;
+    playerGfx.src = playerImagePath;
+    cpuGfx.src = computerImagePath;
 }
 
 let playerScore = 0;
@@ -85,12 +96,15 @@ const resultDiv = document.querySelector('#result');
 const winnerDiv = document.querySelector('#winner');
 const playBtn = document.querySelector('#play-btn');
 const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
+const playerGfx = document.querySelector('#player-choice-gfx');
+const cpuGfx = document.querySelector('#cpu-choice-gfx');
 
 playBtn.addEventListener('click', resetGame);
 playerChoiceBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
         let playerSelection = event.target.innerText;
         let computerSelection = getComputerChoice();
+        updateImages(playerSelection, computerSelection);
         let result = playRound(playerSelection, computerSelection);
         resultDiv.innerHTML = `${result}`;
         playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;

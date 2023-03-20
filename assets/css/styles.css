@@ -48,15 +48,20 @@ html {
     width: 100%;
 }
 
+img {
+    height: 20vh;
+}
+
 #play-btn {
     font-size: 30px;
     height: 80px;
     width: 200px;
 }
 
-#play-btn-container {
+#gfx-play-container {
+    align-items: center;
     display: flex;
-    justify-content: center;
+    justify-content:space-between;
 }
 
 #scores-container {
