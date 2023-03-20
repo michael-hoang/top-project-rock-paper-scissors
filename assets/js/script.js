@@ -36,10 +36,10 @@ function playRound(playerSelection, computerSelection) {
     }
     else {
         if (computerSelection === "Rock") {
-            playerScore++;
+            cpuScore++;
             return "You lose! Rock beats Scissors"
         } else if (computerSelection === "Paper") {
-            cpuScore++;
+            playerScore++;
             return "You win! Scissors beat Paper"
         } else {
             return "It's a draw!"
