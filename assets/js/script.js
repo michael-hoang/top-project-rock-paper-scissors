@@ -49,10 +49,10 @@ function playRound(playerSelection, computerSelection) {
 
 function checkForWinner() {
     if (playerScore === 5) {
-        console.log('You win the game!');
+        winnerDiv.innerHTML = 'You win the game!';
         resetGame();
     } else if (cpuScore === 5) {
-        console.log('The computer wins the game!');
+        winnerDiv.innerHTML = 'The computer wins the game!';
         resetGame();
     }
 }
@@ -66,13 +66,25 @@ let playerScore = 0;
 let cpuScore = 0;
 const playerScoreDiv = document.querySelector('#player-score');
 const cpuScoreDiv = document.querySelector('#cpu-score');
-const buttons = document.querySelectorAll('.player-choice-btn');
-buttons.forEach((button) => {
+const resultDiv = document.querySelector('#result');
+const winnerDiv = document.querySelector('#winner');
+const playBtn = document.querySelector('#play-btn');
+const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
+
+playBtn.addEventListener('click', (event) => {
+    playerChoiceBtn.forEach((button) => {
+        button.disabled = false;
+    });
+    playBtn.innerText = 'Reset';
+    playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
+    cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
+});
+
+playerChoiceBtn.forEach((button) => {
     button.addEventListener('click', (event) => {
         let playerSelection = event.target.innerText;
         let computerSelection = getComputerChoice();
         let result = playRound(playerSelection, computerSelection);
-        let resultDiv = document.querySelector('#result');
         resultDiv.innerHTML = `Result: ${result}`;
         playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
         cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
