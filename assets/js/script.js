@@ -70,8 +70,8 @@ function resetGame() {
     playBtn.innerText = 'Reset';
     playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
     cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
-    resultDiv.innerHTML = 'Result:';
-    winnerDiv.innerHTML = '';
+    resultDiv.innerHTML = '&nbsp';
+    winnerDiv.innerHTML = '&nbsp';
     playerChoiceBtn.forEach((button) => {
         button.disabled = false;
     })
@@ -92,7 +92,7 @@ playerChoiceBtn.forEach((button) => {
         let playerSelection = event.target.innerText;
         let computerSelection = getComputerChoice();
         let result = playRound(playerSelection, computerSelection);
-        resultDiv.innerHTML = `Result: ${result}`;
+        resultDiv.innerHTML = `${result}`;
         playerScoreDiv.innerHTML = `Player Score: ${playerScore}`;
         cpuScoreDiv.innerHTML = `CPU Score: ${cpuScore}`;
         checkForWinner();

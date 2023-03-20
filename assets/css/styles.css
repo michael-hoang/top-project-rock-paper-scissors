@@ -4,15 +4,17 @@ body {
     display: flex;
     flex-direction: column;
     font-family: 'Yomogi', cursive;
-    font-size: 26px;
+    font-size: 36px;
+    justify-content: space-between;
     margin: 0 20%;
+    min-height: 100%;
     text-align: center;
 }
 
 button {
-    background-color: #FFD369;
+    background-color: #ffd369;
     font-family: 'Yomogi', cursive;
-    font-size: larger;
+    font-size: 30px;
     font-weight: 900;
     height: 80px;
     transition: all 0.15s ease-in-out;
@@ -20,8 +22,8 @@ button {
 }
 
 button:hover:enabled {
-    color: white;
-    box-shadow: 0 5px 15px rgba(145, 92, 182, 1);
+    color: red;
+    box-shadow: 0 0 25px rgba(255, 211, 105, 0.9);
 }
 
 button:disabled {
@@ -40,11 +42,14 @@ h1 {
     font-size: 80px;
 }
 
+html {
+    height: 100%;
+}
+
 #play-btn {
-    font-size: larger;
-    height: 60px;
-    min-width: 120px;
-    width: auto;
+    font-size: 30px;
+    height: 80px;
+    width: 200px;
 }
 
 #play-btn-container {
