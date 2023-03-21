@@ -11,39 +11,22 @@ function getComputerChoice() {
 }
 
 function playRound(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    if (playerSelection === "rock") {
-        if (computerSelection === "Rock") {
-            return "It's a draw!";
-        } else if (computerSelection === "Paper") {
-            cpuScore++;
-            return "You lose! Paper beats Rock";
-        } else {
-            playerScore++;
-            return "You win! Rock beats Scissors"
-        }
-    }
-    else if (playerSelection === "paper") {
-        if (computerSelection === "Rock") {
-            playerScore++;
-            return "You win! Paper beats Rock"
-        } else if (computerSelection === "Paper") {
-            return "It's a draw!"
-        } else {
-            cpuScore++;
-            return "You lose! Scissors beat Paper"
-        }
-    }
-    else {
-        if (computerSelection === "Rock") {
-            cpuScore++;
-            return "You lose! Rock beats Scissors"
-        } else if (computerSelection === "Paper") {
-            playerScore++;
-            return "You win! Scissors beat Paper"
-        } else {
-            return "It's a draw!"
-        }
+    let beats = "beats";
+    if (playerSelection === computerSelection) {
+        headGfx.src = 'assets/img/kitty.png';
+        return "It's a draw!";
+    } else if (playerSelection === "Rock" && computerSelection === "Scissors" ||
+        playerSelection === "Paper" && computerSelection === "Rock" ||
+        playerSelection === "Scissors" && computerSelection === "Paper") {
+        playerScore++;
+        headGfx.src = 'assets/img/player-win.png';
+        if (playerSelection === "Scissors") {beats = "beat";}
+        return `You win! ${playerSelection} ${beats} ${computerSelection}.`;
+    } else {
+        cpuScore++;
+        headGfx.src = 'assets/img/cpu-win.png';
+        if (computerSelection === "Scissors") {beats = "beat";}
+        return `You lose! ${computerSelection} ${beats} ${playerSelection}.`;
     }
 }
 
@@ -51,6 +34,7 @@ function checkForWinner() {
     let winnerFound = false;
     if (playerScore === 5) {
         winnerDiv.innerHTML = 'You win the game!';
+        headGfx.src = 'assets/img/win.png';
         winnerFound = true;
     } else if (cpuScore === 5) {
         winnerDiv.innerHTML = 'The computer wins the game!';
@@ -82,8 +66,6 @@ function resetGame() {
 }
 
 function updateImages(playerSelection, computerSelection) {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
     playerImagePath = `assets/img/${playerSelection}.png`;
     computerImagePath = `assets/img/${computerSelection}.png`;
     playerGfx.src = playerImagePath;
