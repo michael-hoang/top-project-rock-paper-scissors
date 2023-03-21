@@ -35,10 +35,14 @@ function checkForWinner() {
     if (playerScore === 5) {
         winnerDiv.innerHTML = 'You win the game!';
         headGfx.src = 'assets/img/win.png';
+        audio.src = 'assets/audio/meow-win.mp3';
+        audio.play();
         winnerFound = true;
     } else if (cpuScore === 5) {
         winnerDiv.innerHTML = 'The computer wins the game!';
         headGfx.src = 'assets/img/lose.png';
+        audio.src = 'assets/audio/meow-lose.mp3';
+        audio.play();
         winnerFound = true;
     }
     if (winnerFound) {
@@ -83,6 +87,7 @@ const playerChoiceBtn = document.querySelectorAll('.player-choice-btn');
 const playerGfx = document.querySelector('#player-choice-gfx');
 const cpuGfx = document.querySelector('#cpu-choice-gfx');
 const headGfx = document.querySelector('#gfx-head');
+const audio = document.querySelector('#win-lose-audio');
 
 playBtn.addEventListener('click', resetGame);
 playerChoiceBtn.forEach((button) => {
