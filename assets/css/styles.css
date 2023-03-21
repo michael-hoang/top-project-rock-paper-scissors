@@ -39,7 +39,7 @@ button:disabled {
 h1 {
     color: #FFD369;
     font-family: 'Rubik Dirt', cursive;
-    font-size: 80px;
+    font-size: calc(25px + 3vw);
     margin: 60px 0 0 0;
 }
 
@@ -50,6 +50,7 @@ html {
 
 img.choice {
     height: 20vh;
+    max-width: 100%;
 }
 
 #play-btn {
@@ -59,7 +60,8 @@ img.choice {
 }
 
 #gfx-head {
-    height: 250px;
+    height: 25vh;
+    max-width: 100%;
 }
 
 #gfx-play-container {
